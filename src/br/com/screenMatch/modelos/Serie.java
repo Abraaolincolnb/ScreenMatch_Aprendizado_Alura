@@ -1,5 +1,5 @@
 package br.com.screenMatch.modelos;
-
+//pequeno comentario pra teste
 public class Serie extends Titulos {
 
     private int temporadas;
