@@ -1,4 +1,5 @@
 import br.com.screenMatch.calculos.CalculadoraDeTempo;
+import br.com.screenMatch.calculos.FiltroRecomendacao;
 import br.com.screenMatch.modelos.Filme;
 import br.com.screenMatch.modelos.Serie;
 
@@ -31,5 +32,9 @@ public class Main {
         calculadora.inclui(serie);
 
         System.out.println("Tempo total: " +calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtrar(favorito);
+
     }
 }
