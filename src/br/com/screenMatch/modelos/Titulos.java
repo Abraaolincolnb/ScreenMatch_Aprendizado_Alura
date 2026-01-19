@@ -1,13 +1,25 @@
 package br.com.screenMatch.modelos;
 
-public class Titulos {
+import com.google.gson.annotations.SerializedName;
 
+public class Titulos implements Comparable<Titulos>{
     private String nome;
     private int anoDeLancamento;
     private int duracaoEmMinutos;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
     private int totalDeAvaliacoes;
+
+    public Titulos(String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulos(TituloOMDb meuTituloOMDb) {
+        this.nome = meuTituloOMDb.Title();
+        this.anoDeLancamento = Integer.parseInt(meuTituloOMDb.Year());
+        this.duracaoEmMinutos = Integer.parseInt(meuTituloOMDb.Runtime());
+    }
 
     public void exibeFichaTecnica() {
         System.out.println("Nome do filme: " +nome);
@@ -61,4 +73,16 @@ public class Titulos {
         return this.totalDeAvaliacoes;
     }
 
+    @Override
+    public int compareTo(Titulos outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
+    }
+
+    @Override
+    public String toString() {
+        return "nome='" + nome + '\'' +
+                ", anoDeLancamento=" + anoDeLancamento +
+                ", duracaoEmMinutos=" + duracaoEmMinutos +
+                '}';
+    }
 }

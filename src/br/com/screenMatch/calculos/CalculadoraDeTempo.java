@@ -7,7 +7,7 @@ public class CalculadoraDeTempo {
     private int tempoTotal;
 
     public void inclui(Titulos titulo) {
-        tempoTotal += titulo.getDuracaoEmMinutos();
+        tempoTotal += Integer.valueOf(titulo.getDuracaoEmMinutos());
     }
 
     public int getTempoTotal() {
